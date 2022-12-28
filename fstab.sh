@@ -2,10 +2,7 @@
 
 #install nfs-common
 apt update
-apt install nfs-common git
-
-#install oh-my-bash
-bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
+apt install nfs-common git -y
 
 #create dir structure
 DIR=/library
@@ -22,3 +19,7 @@ wget https://raw.githubusercontent.com/hexeth/proxmox-starter/main/fstab -O /etc
 chown root:root /etc/fstab
 #mount
 mount -a
+
+#install oh-my-bash
+bash -c "$(wget https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh -O -)"
+sed -i '/TEXT_TO_BE_REPLACED/c\This line is removed by the admin.' /tmp/foo
