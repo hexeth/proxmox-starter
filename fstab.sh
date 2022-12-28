@@ -11,4 +11,4 @@ if [ ! -d $DIR ]; then
 fi
 
 #create fstab
-wget -O https://raw.githubusercontent.com/hexeth/proxmox-starter/main/fstab -P /etc/
+wget https://raw.githubusercontent.com/hexeth/proxmox-starter/main/fstab -O /etc/fstab
