@@ -3,7 +3,7 @@
 #create dir structure
 
 DIR=/library
-if [ ! -d $DIR ]; then
+if [ ! -d $DIR ] then
     mkdir /library
     mkdir /library/data1
     mkdir /library/data2
