@@ -2,10 +2,8 @@
 
 #create dir structure
 
-FILE=/library
-if [ -f "$FILE" ]; then
-    echo "directory already exists"
-else
+DIR=/library
+if [ ! -d $DIR ]; then
     mkdir /library
     mkdir /library/data1
     mkdir /library/data2
