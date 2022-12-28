@@ -1,10 +1,16 @@
 #!/bin/bash
 
 #create dir structure
-mkdir /library
-mkdir /library/data1
-mkdir /library/data2
-mkdir /library/data3
+
+FILE=/library
+if [ -f "$FILE" ]; then
+    echo "directory already exists"
+else
+    mkdir /library
+    mkdir /library/data1
+    mkdir /library/data2
+    mkdir /library/data3
+fi
 
 #create fstab
 echo "192.168.1.23:/mnt/md0/data      /library/data1  nfs     defaults        0       0" | tee -a /etc/fstab
