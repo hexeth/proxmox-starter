@@ -12,3 +12,6 @@ fi
 
 #create fstab
 wget https://raw.githubusercontent.com/hexeth/proxmox-starter/main/fstab -O /etc/fstab
+
+#mount
+mount -a
