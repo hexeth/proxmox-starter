@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #create dir structure
-
 DIR=/library
 if [ ! -d $DIR ]; then
     mkdir "/library"
