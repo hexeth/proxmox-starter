@@ -11,8 +11,11 @@ if [ ! -d $DIR ]; then
 fi
 
 #create fstab
-fstabArray=()
-fstabArray += ( "192.168.1.23:/mnt/md0/data      /library/data1  nfs     defaults        0       0" "192.168.1.23:/mnt/md1/data2     /library/data2  nfs     defaults        0       0" "192.168.1.23:/mnt/md2/data3     /library/data3  nfs     defaults        0       0" ) 
+fstabArray=(
+    "192.168.1.23:/mnt/md0/data      /library/data1  nfs     defaults        0       0"
+    "192.168.1.23:/mnt/md1/data2     /library/data2  nfs     defaults        0       0"
+    "192.168.1.23:/mnt/md2/data3     /library/data3  nfs     defaults        0       0"
+) 
 
 for i in ${fstabArray[@]}; do
   if  grep -q "$i" "/etc/fstab" ; then
