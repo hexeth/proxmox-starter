@@ -66,10 +66,10 @@ function setup_git_and_bash {
 }
 
 # Show a dialog box with a list of options
-options=$(whiptail --scrolltext --title "Proxmox Starter" --checklist "What do you want to do?" 15 60 4 \
+options=$(whiptail --title "Proxmox Starter" --checklist "What do you want to do?" 15 60 4 \
   "Mount NFS drives" "Mount NFS drives" OFF \
   "Install oh-my-bash" "Install oh-my-bash" OFF \
-  "Do both" "" \OFF 3>&1 1>&2 2>&3)
+  "Do both" "" \ ON --separate-output 3>&1 1>&2 2>&3)
 
 # Check which options were selected
 if [[ $options == *"Mount NFS drives"* ]]; then
