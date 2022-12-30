@@ -65,33 +65,23 @@ function setup_git_and_bash {
   fi
 }
 
-# Show a welcome message using Zenity
-zenity --info --title "Welcome" --text "This script allows you to mount NFS drives, install oh-my-bash, or do both. Select the options you want to perform."
+# Show a dialog box with a list of options
+options=$(whiptail --title "Proxmox Starter" --checklist "What do you want to do?" 15 60 4 \
+  "Mount NFS drives" "Mount NFS drives and create fstab entries" OFF \
+  "Install oh-my-bash" "Install git and oh-my-bash" OFF \
+  "Do both" "Mount NFS drives and install git and oh-my-bash" OFF 3>&1 1>&2 2>&3)
 
-# Show a graphical interface using Zenity
-options=$(zenity --list --checklist --title "Select Options" \
-  --text "What do you want to do?" \
-  --column "Select" --column "Option" \
-  TRUE "Mount NFS drives" \
-  TRUE "Install oh-my-bash" \
-  TRUE "Do both")
-
-# Check if the user selected the "Mount NFS drives" option
+# Check which options were selected
 if [[ $options == *"Mount NFS drives"* ]]; then
-  # Run the setup_directories_and_nfs and mount_directories functions
   setup_directories_and_nfs
   mount_directories
 fi
 
-# Check if the user selected the "Install oh-my-bash" option
 if [[ $options == *"Install oh-my-bash"* ]]; then
-  # Run the setup_git_and_bash function
   setup_git_and_bash
 fi
 
-# Check if the user selected the "Do both" option
 if [[ $options == *"Do both"* ]]; then
-  # Run the setup_directories_and_nfs, mount_directories, and setup_git_and_bash functions
   setup_directories_and_nfs
   mount_directories
   setup_git_and_bash
